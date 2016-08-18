@@ -1,3 +1,5 @@
+#this functions sets up the cache for the matrix
+
 makeCacheMatrix <- function(x = matrix()) {
   matt <- NULL
   set <- function(y) {
@@ -10,8 +12,10 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set = set, get = get,set_inverse = set_inverse,get_inverse = get_inverse)
 }
 
+#this function reverses a matrix
+
 cacheSolve <- function(x, ...) {
-  m <- x$getinv()
+  m <- x$get_inverse()
   if(!is.null(m)) {
     #message("DEBUG-TEST")
     return(m)
@@ -21,3 +25,6 @@ cacheSolve <- function(x, ...) {
   x$set_inverse(m)
   m
 }
+
+
+
